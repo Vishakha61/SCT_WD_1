@@ -105,8 +105,15 @@ function initCart() {
         btn.addEventListener('click', function() {
             const name = this.getAttribute('data-name');
             const price = parseFloat(this.getAttribute('data-price'));
-            const image = this.getAttribute('data-image');
-            
+            // Find the closest .menu-item and get its image src
+            let image = this.getAttribute('data-image');
+            const menuItem = this.closest('.menu-item');
+            if (menuItem) {
+                const imgTag = menuItem.querySelector('img');
+                if (imgTag && imgTag.src) {
+                    image = imgTag.src;
+                }
+            }
             addToCart(name, price, image);
             showCartNotification(`${name} added to cart!`);
         });
@@ -449,23 +456,6 @@ function initNavigation() {
     navToggle.addEventListener('click', function() {
         navMenu.classList.toggle('active');
         navToggle.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-        });
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        const isClickInsideNav = navbar.contains(event.target);
-        if (!isClickInsideNav && navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-        }
     });
 }
 
@@ -1040,14 +1030,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create scroll progress indicator
     createScrollProgressIndicator();
     
-    // Create typing effect (uncomment if desired)
-    // createTypingEffect();
-    
-    // Add floating elements animation
+ 
     createFloatingElements();
     
-    // Initialize theme switcher (if needed)
-    // initThemeSwitcher();
+   
 });
 
 // Floating background elements
@@ -1078,4 +1064,4 @@ function createFloatingElements() {
 
 // Global functions for cart operations (needed for HTML onclick handlers)
 window.updateQuantity = updateQuantity;
-window.removeFromCart = removeFromCart;
+window.removeFromCart = removeFromCart

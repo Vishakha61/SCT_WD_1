@@ -1097,23 +1097,26 @@ body {
 }
 /* UPI Button Styles */
 .upi-btn {
-  background-color: #f5f5f5;
-  color: #333;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 6px 16px;
-  margin-right: 6px;
-  font-size: 15px;
+  background: linear-gradient(90deg, #e0eafc 0%, #f9f9f9 100%);
+  color: #007bff;
+  border: 2px solid #007bff;
+  border-radius: 25px;
+  padding: 8px 22px;
+  margin-right: 10px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
 }
 .upi-btn:last-child {
   margin-right: 0;
 }
 .upi-btn:hover, .upi-btn:focus {
-  background-color: #e0e0e0;
-  color: #007bff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: linear-gradient(90deg, #d0e2ff 0%, #e0eafc 100%);
+  color: #fff;
+  border: 2px solid #0056b3;
+  box-shadow: 0 4px 16px rgba(0,123,255,0.15);
   outline: none;
 }
 .services {
