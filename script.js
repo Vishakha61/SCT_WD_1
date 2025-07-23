@@ -1,5 +1,4 @@
-// ...existing code...
-// DOM Content Loaded
+
 document.addEventListener('DOMContentLoaded', function() {
     // Navigation functionality
     initNavigation();
