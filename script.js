@@ -105,8 +105,8 @@ function initCart() {
         btn.addEventListener('click', function() {
             const name = this.getAttribute('data-name');
             const price = parseFloat(this.getAttribute('data-price'));
-            // Find the closest .menu-item and get its image src
-            let image = this.getAttribute('data-image');
+            // Always use the menu item's <img> src for cart image
+            let image = '';
             const menuItem = this.closest('.menu-item');
             if (menuItem) {
                 const imgTag = menuItem.querySelector('img');
@@ -209,10 +209,7 @@ function updateCartDisplay() {
         cartItems.innerHTML = cart.map(item => `
             <div class="cart-item">
                 <div class="cart-item-image">
-                    ${item.image.startsWith('http') 
-                        ? `<img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">` 
-                        : item.image
-                    }
+                    <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
                 </div>
                 <div class="cart-item-info">
                     <h4>${item.name}</h4>
